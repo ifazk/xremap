@@ -14,6 +14,8 @@ mod hypr_client;
 mod kde;
 #[cfg(feature = "niri")]
 mod niri_client;
+#[cfg(feature = "pantheon")]
+mod pantheon_client;
 #[cfg(feature = "socket")]
 mod socket_client;
 #[cfg(feature = "socket")]
@@ -133,6 +135,8 @@ pub fn build_client(log_window_changes: bool) -> WMClient {
         WMClient::new("wlroots", Box::new(wlroots_client::WlRootsClient::new()), log_window_changes),
         #[cfg(feature = "niri")]
         WMClient::new("Niri", Box::new(niri_client::NiriClient::new()), log_window_changes),
+        #[cfg(feature = "pantheon")]
+        WMClient::new("Pantheon", Box::new(pantheon_client::PantheonClient::new()), log_window_changes),
         #[cfg(feature = "cosmic")]
         WMClient::new("COSMIC", Box::new(cosmic_client::CosmicClient::new()), log_window_changes),
         #[cfg(feature = "socket")]

@@ -47,16 +47,17 @@ If it doesn't work, please [install Rust](https://doc.rust-lang.org/cargo/gettin
 and run one of the following commands:
 
 ```bash
-cargo install xremap --features x11     # X11
-cargo install xremap --features gnome   # GNOME Wayland
-cargo install xremap --features kde     # KDE-Plasma Wayland
-cargo install xremap --features wlroots # Sway, Wayfire, etc.
-cargo install xremap --features hypr    # Hyprland
-cargo install xremap --features niri    # Niri
-cargo install xremap --features cosmic  # COSMIC Wayland
-cargo install xremap --features socket  # Socket client with logind session monitor
-cargo install xremap --features ewm     # EWM (experimental)
-cargo install xremap                    # Others
+cargo install xremap --features x11      # X11
+cargo install xremap --features gnome    # GNOME Wayland
+cargo install xremap --features kde      # KDE-Plasma Wayland
+cargo install xremap --features wlroots  # Sway, Wayfire, etc.
+cargo install xremap --features hypr     # Hyprland
+cargo install xremap --features niri     # Niri
+cargo install xremap --features pantheon # Pantheon
+cargo install xremap --features cosmic   # COSMIC Wayland
+cargo install xremap --features socket   # Socket client with logind session monitor
+cargo install xremap --features ewm      # EWM (experimental)
+cargo install xremap                     # Others
 ```
 
 You may also need to install `libx11-dev` to run `xremap` for X11.
@@ -425,6 +426,14 @@ niri msg windows
 ```
 
 Locate `App ID` in the output.
+
+#### Pantheon
+
+```
+gdbus call --session --dest org.pantheon.gala --object-path /org/pantheon/gala/DesktopInterface --method org.pantheon.gala.DesktopIntegration.GetWindows
+```
+
+Locate `sandboxed-app-id` or `app-id` in the output.
 
 #### COSMIC Wayland
 
